@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 38 Rainski</title>
+    <style>
+        body {
+            background-color: silver;
+            font-family: Arial, sans-serif;
+        }
+        .menu {
+            color: red;
+            font-size: 45px;
+        }
+        .wynik {
+            color: green;
+            font-size: 45px;
+        }
+        .teoria {
+            color: blue;
+            font-size: 45px;
+        }
+        .error {
+            color: red;
+            font-size: 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="output"></div>
+    <button onclick="wybierzOpcje()">Wybierz opcję</button>
+
+    <script>
+        var imie = prompt("Podaj Imię:", "");
+        var nazwisko = prompt("Podaj Nazwisko:", "");
+        let dzienUrodzenia = prompt("Podaj dzien urodzenia:", "");
+
+
+        var liczba1 = imie.length;
+        var liczba2 = liczba1 + 7;
+        var liczba3 = nazwisko.length;
+        var liczba4 = liczba3 + 4;
+        var opcja1 = liczba1;
+        var opcja2 = liczba3 + 20;
+        let opcja3 = +dzienUrodzenia + 50; 
+
+
+        var output = document.getElementById('output');
+        output.innerHTML = `
+            <p class="wynik">Moje nazwisko to: ${imie} ${nazwisko}</p>
+            <p class="wynik">liczba1= ${liczba1}</p>
+            <p class="wynik">liczba2= ${liczba1} + 7 = ${liczba2}</p>
+            <p class="wynik">liczba3= ${liczba3}</p>
+            <p class="wynik">liczba4= ${liczba3} + 4 = ${liczba4}</p>
+        `;
+
+
+        output.innerHTML += `
+            <h1 class="menu">Menu:</h1>
+            <p class="menu">Opcja ${opcja1} - Teoria o operatorach logicznych</p>
+            <p class="menu">Opcja ${opcja2} - Sprawdź, czy liczba należy do przedziału (${liczba1}; ${liczba2}]</p>
+            <p class="menu">Opcja ${opcja3} - Sprawdź, czy liczba należy do przedziału (-∞, ${liczba1}) lub [${liczba2}, +∞)</p>
+        `;
+
+
+        function wybierzOpcje() {
+            var opcja_rai = parseInt(prompt("Wybierz opcję ("+opcja1+","+opcja2+","+opcja3+"):", ""));
+
+
+            if (opcja_rai == opcja1) {
+
+                output.innerHTML += `
+                    <p class="teoria">Jesteś w opcji ${liczba1} --> Teoria o operatorach logicznych</p>
+                    <p class="teoria">&& (AND): x=3 y=4 (x < 9 && y > 2) wynik --> prawda</p>
+                    <p class="teoria">|| (OR): x=3 y=4 (x==8 || y==6) wynik --> fałsz</p>
+                    <p class="teoria">! (NOT): x=3 y=4 !(x==y) wynik --> prawda</p>
+                `;
+            } else if (opcja_rai == opcja2) {
+
+                var liczba_rai = parseFloat(prompt("Podaj liczbę do sprawdzenia:", ""));
+                if (liczba_rai > liczba1 && liczba_rai <= liczba2) {
+                    output.innerHTML += `<p class="teoria">Liczba ${liczba_rai} należy do przedziału (${liczba1}; ${liczba2}]</p>`;
+                } else {
+                    output.innerHTML += `<p class="error">Liczba ${liczba_rai} NIE należy do przedziału (${liczba1}; ${liczba2}]</p>`;
+                }
+            } else if (opcja_rai == opcja3) {
+
+                var liczba2_rai = parseFloat(prompt("Podaj liczbę do sprawdzenia:", ""));
+                if (liczba2_rai < liczba1 || liczba2_rai >= liczba2) {
+                    output.innerHTML += `<p class="teoria">Liczba ${liczba2_rai} należy do przedziału (-∞, ${liczba1}) lub [${liczba2}, +∞)</p>`;
+                } else {
+                    output.innerHTML += `<p class="error">Liczba ${liczba2_rai} NIE należy do przedziału (-∞, ${liczba1}) lub [${liczba2}, +∞)</p>`;
+                }
+            } else {
+                output.innerHTML += `<p class="error">Nie ma takiej opcji!</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

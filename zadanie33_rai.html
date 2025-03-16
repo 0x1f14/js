@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 33</title>
+    <script>
+        function User(adres, hasło, url) {
+            this.adres = adres;
+            this.hasło = hasło;
+            this.url = url;
+        }
+        var uzytkownik1 = new User('uzytkownik@gmail.com', 'haslo123', 'https://avatarfiles.alphacoders.com/368/368959.jpg');
+
+        function Router() {
+            this.Router_wyswietl_rainski = function (email, password) {
+                if (email === uzytkownik1.adres && password === uzytkownik1.hasło) {
+                    document.getElementById('wynik').innerHTML = 'Zalogowano pomyślnie!';
+                } else {
+                    document.getElementById('wynik').innerHTML = 'Błędny email lub hasło!';
+                }
+            };
+        }
+
+        function login(event) {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('haslo').value;
+            var router = new Router();
+            router.Router_wyswietl_rainski(email, password);
+        }
+    </script>
+</head>
+<body>
+    <h1>Logowanie</h1>
+    <form onsubmit="login(event)">
+        <label>E-mail: <input type="email" id="email" required></label><br><br>
+        <label>Hasło: <input type="password" id="haslo" required></label><br><br>
+        <button type="submit">Zaloguj</button>
+    </form>
+    <p id="wynik"></p>
+</body>
+</html>

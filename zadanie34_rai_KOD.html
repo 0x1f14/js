@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function okno_zamknij_rainski() {
+            window.close()
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <textarea name="rainski" cols="120" rows="29" readonly>
+            <!DOCTYPE html>
+            <html lang="pl">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Zadanie 34</title>
+            </head>
+            <body>
+                <h1>Profil użytkownika</h1>
+                <ul id="user-list"></ul>
+            
+                <script>
+                    function User(adres, url) {
+                        this.adres = adres;
+                        this.url = url;
+                    }
+            
+                    function UserView(user) {
+                        this.user = user;
+                        this.dom = document.createElement('li');
+                        this.refresh();
+                    }
+            
+                    UserView.prototype.refresh = function () {
+                        this.dom.innerHTML = `<img src="${this.user.url}" width="50"> <a href="mailto:${this.user.adres}">${this.user.adres}</a>`;
+                    };
+            
+                    var uzytkownik1 = new User('uzytkownik@gmail.com', 'https://avatarfiles.alphacoders.com/368/368959.jpg');
+                    var userView1 = new UserView(uzytkownik1);
+                    document.getElementById('user-list').appendChild(userView1.dom);
+                </script>
+            </body>
+            </html>
+            
+</textarea>
+    </form>
+    <input type="button" value="zamknij okno" onclick="okno_zamknij_rainski()" />
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>
