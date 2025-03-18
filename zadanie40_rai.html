@@ -85,18 +85,26 @@
         }
 
 
-        function teoria_rai() {
-            document.write("<font color=green size=4>1. <label for=&quot;a&quot;>Podaj pierwszą liczbę:</label> <input type=&quot;number&quot; id=&quot;a&quot;></font><br>");
-            document.write("<font color=green size=4>Wytłumaczenie: Tworzy pole do wprowadzania pierwszej liczby.</font><br><br>");
-            document.write("<font color=green size=4>2. <input type=&quot;button&quot; value=&quot;DODAWANIE&quot; onclick=&quot;suma_rai()&quot;></font><br>");
-            document.write("<font color=green size=4>Wytłumaczenie: Przycisk uruchamiający dodawanie.</font><br><br>");
-            document.write("<font color=green size=4>3. var a = document.getElementById(&quot;a&quot;).value;</font><br>");
-            document.write("<font color=green size=4>Wytłumaczenie: Pobiera wartość z pola 'a'.</font><br><br>");
-            document.write("<font color=green size=4>4. if (a == &quot;&quot; || b == &quot;&quot;)</font><br>");
-            document.write("<font color=green size=4>Wytłumaczenie: Sprawdza, czy pola są puste.</font><br><br>");
-            document.write("<font color=green size=4>5. document.getElementById(&quot;wynik&quot;).innerHTML = &quot;Wynik działania wynosi: &quot; + suma;</font><br>");
-            document.write("<font color=green size=4>Wytłumaczenie: Wyświetla wynik działania.</font><br><br>");
-        }
+function teoria_rai() {
+    document.write(`
+        <p style="color: green; font-size: 16px;">1. Podaj pierwszą liczbę: <input type="number" id="a"></p>
+        <p style="color: green; font-size: 16px;">Wytłumaczenie: Tworzy pole do wprowadzania pierwszej liczby.</p>
+        
+        <p style="color: green; font-size: 16px;"><button onclick="suma_rai()">DODAWANIE</button></p>
+        <p style="color: green; font-size: 16px;">Wytłumaczenie: Przycisk uruchamiający dodawanie.</p>
+        
+        <p style="color: green; font-size: 16px;">var a = document.getElementById("a").value;</p>
+        <p style="color: green; font-size: 16px;">Wytłumaczenie: Pobiera wartość z pola 'a'.</p>
+        
+        <p style="color: green; font-size: 16px;">if (a === "")</p>
+        <p style="color: green; font-size: 16px;">Wytłumaczenie: Sprawdza, czy pole jest puste.</p>
+        
+        <p style="color: green; font-size: 16px;">document.getElementById("wynik").innerHTML = "Wynik działania wynosi: " + suma;</p>
+        <p style="color: green; font-size: 16px;">Wytłumaczenie: Wyświetla wynik działania.</p>
+        
+        <div id="wynik" style="color: green; font-size: 16px;"></div>
+    `);
+}
     </script>
 </body>
 
