@@ -62,7 +62,7 @@
             <h1 class="menu">Menu:</h1>
             <p class="menu">Opcja ${opcja1} - Teoria o operatorach logicznych</p>
             <p class="menu">Opcja ${opcja2} - Sprawdź, czy liczba należy do przedziału (${liczba1}; ${liczba2}]</p>
-            <p class="menu">Opcja ${opcja3} - Sprawdź, czy liczba należy do przedziału (-∞, ${liczba1}) lub [${liczba2}, +∞)</p>
+            <p class="menu">Opcja ${opcja3} - Sprawdź, czy liczba należy do przedziału (-∞, ${liczba3}) lub [${liczba4}, +∞)</p>
         `;
 
 
@@ -89,10 +89,10 @@
             } else if (opcja_rai == opcja3) {
 
                 var liczba2_rai = parseFloat(prompt("Podaj liczbę do sprawdzenia:", ""));
-                if (liczba2_rai < liczba1 || liczba2_rai >= liczba2) {
-                    output.innerHTML += `<p class="teoria">Liczba ${liczba2_rai} należy do przedziału (-∞, ${liczba1}) lub [${liczba2}, +∞)</p>`;
+                if (liczba2_rai < liczba3 || liczba2_rai >= liczba4) {
+                    output.innerHTML += `<p class="teoria">Liczba ${liczba2_rai} należy do przedziału (-∞, ${liczba3}) lub [${liczba4}, +∞)</p>`;
                 } else {
-                    output.innerHTML += `<p class="error">Liczba ${liczba2_rai} NIE należy do przedziału (-∞, ${liczba1}) lub [${liczba2}, +∞)</p>`;
+                    output.innerHTML += `<p class="error">Liczba ${liczba2_rai} NIE należy do przedziału (-∞, ${liczba3}) lub [${liczba4}, +∞)</p>`;
                 }
             } else {
                 output.innerHTML += `<p class="error">Nie ma takiej opcji!</p>`;
